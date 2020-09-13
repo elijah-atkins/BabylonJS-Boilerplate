@@ -1,5 +1,5 @@
 
-import { Scene, Mesh, Vector3, CubeTexture } from '@babylonjs/core';
+import { Scene, Mesh, Vector3, MeshBuilder, CubeTexture, Texture, Color3, StandardMaterial } from '@babylonjs/core';
 
 export class Environment {
     private _scene: Scene;
@@ -9,7 +9,8 @@ export class Environment {
     }
 
     public async load() {
+
         var ground = Mesh.CreateBox("ground", 24, this._scene);
-        ground.scaling = new Vector3(1,.02,1);
+        ground.scaling = new Vector3(1, .02, 1);
     }
 }
