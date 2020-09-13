@@ -1,5 +1,5 @@
 
-import { Scene, Mesh, Vector3 } from '@babylonjs/core';
+import { Scene, Mesh, Vector3, CubeTexture } from '@babylonjs/core';
 
 export class Environment {
     private _scene: Scene;

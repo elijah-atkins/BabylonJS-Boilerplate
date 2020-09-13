@@ -1,11 +1,12 @@
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
-import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, Mesh, MeshBuilder, FreeCamera, Color4, StandardMaterial, Color3, PointLight, ShadowGenerator, Quaternion, Matrix } from "@babylonjs/core";
+import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, Mesh, MeshBuilder, FreeCamera, Color4, StandardMaterial, Color3, PointLight, ShadowGenerator, Quaternion, Matrix, DirectionalLight, CubeTexture, Texture } from "@babylonjs/core";
 import { AdvancedDynamicTexture, Button, Control } from "@babylonjs/gui";
 import { Environment } from "./environment";
 import { Player } from "./characterController";
 import { PlayerInput } from "./inputController";
+
 
 enum State { START = 0, GAME = 1, LOSE = 2, CUTSCENE = 3 }
 
@@ -238,15 +239,16 @@ class App {
     }
 
     private async _initializeGameAsync(scene): Promise<void> {
-        //temporary light to light the entire scene
-        var light0 = new HemisphericLight("HemiLight", new Vector3(0, 1, 0), scene);
+        // var light1= new HemisphericLight("hemiLight", new Vector3(-1, 1, 0), scene);
+        // light1.diffuse = new Color3(1, 0, 0);
 
-        const light = new PointLight("sparklight", new Vector3(0, 0, 0), scene);
-        light.diffuse = new Color3(0.08627450980392157, 0.10980392156862745, 0.15294117647058825);
+
+        const light = new PointLight("sparklight", new Vector3(0, 5, 0), scene);
+        light.diffuse = new Color3(0.88627450980392157, 0.10980392156862745, 0.15294117647058825);
         light.intensity = 35;
         light.radius = 1;
     
-        const shadowGenerator = new ShadowGenerator(1024, light);
+      const shadowGenerator = new ShadowGenerator(1024, light);
         shadowGenerator.darkness = 0.4;
         
         //Create the player
