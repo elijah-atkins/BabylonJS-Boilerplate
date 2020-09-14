@@ -69,3 +69,4 @@ typings/
 #ignore local images
 img/
 img/env/
+mesh/
